@@ -34,3 +34,40 @@ All API activity is logged in `trading.log`
 ## Note
 If API is unavailable, set:
 USE_MOCK=True
+
+## Notes
+- Orders may remain in `NEW` state due to Binance testnet simulated execution.
+- Minimum notional value ($100) is required for orders.
+- Price filters apply for LIMIT orders.
+
+## Supported Commands
+
+| Order Type  | Description                                |
+|-------------|--------------------------------------------|
+| MARKET      | Instant execution                          |
+| LIMIT       | Price-controlled order                     |
+| STOP_MARKET | Trigger-based order (stop loss / breakout) |
+
+## Notes
+- Orders may remain in `NEW` state due to Binance testnet.
+- STOP orders may return partial response.
+- Minimum notional ($100) required.
+
+## Example Commands
+
+```bash
+python cli.py --symbol BTCUSDT --side BUY --type MARKET --quantity 0.002
+
+## Features
+- CLI-based trading bot
+- Binance Futures Testnet integration
+- Market, Limit, and Stop-Market orders
+- Input validation
+- Logging system
+- Error handling
+
+## Verification
+Orders verified using:
+- CLI output
+- Log files
+- Binance testnet UI
